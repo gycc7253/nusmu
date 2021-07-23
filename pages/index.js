@@ -2,11 +2,11 @@ import Head from 'next/head'
 import Link from 'next/link'
 import React, { useState } from 'react';
 import MyLayout from '../components/layout'
-import { Table, Input, Button, Space, Tag } from 'antd';
+import { Table, Input, Button, Space, Tag, Modal, Select, Switch } from 'antd';
 import 'antd/dist/antd.css';
 import Highlighter from 'react-highlight-words';
-import { SearchOutlined, RightOutlined } from '@ant-design/icons';
-
+import { SearchOutlined, RightOutlined, PlusOutlined, ThunderboltOutlined, CloseOutlined, CheckOutlined} from '@ant-design/icons';
+const { Option } = Select;
 const data = [
   {
     key: '1',
@@ -78,6 +78,33 @@ export default function Home() {
   const [searchText, setSearchText] = useState('');
   const [searchedColumn, setSearchedColumn] = useState('');
   const [searchInput, setSearchInput] = useState('');
+
+  const [isMatchModalVisible, setIsMatchModalVisible] = useState(false);
+  const [isCreateModalVisible, setIsCreateModalVisible] = useState(false);
+
+  const showMatchModal = () => {
+    setIsMatchModalVisible(true);
+  };
+
+  const handleMatchOk = () => {
+    setIsMatchModalVisible(false);
+  };
+
+  const handleMatchCancel = () => {
+    setIsMatchModalVisible(false);
+  };
+
+  const showCreateModal = () => {
+    setIsCreateModalVisible(true);
+  };
+
+  const handleCreateOk = () => {
+    setIsCreateModalVisible(false);
+  };
+
+  const handleCreateCancel = () => {
+    setIsCreateModalVisible(false);
+  };
 
   const getColumnSearchProps = dataIndex => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
@@ -235,10 +262,100 @@ export default function Home() {
   ];
 
   return (
-    <Table columns={columns} dataSource={data} />
+    <>
+      <Table columns={columns} dataSource={data}/>
+      <Modal title="Quick Match" visible={isMatchModalVisible} 
+      okText="Join Room"
+      cancelText="Cancel"
+      onOk={handleMatchOk} onCancel={handleMatchCancel}>
+        <p>We will place you into a room with your interest</p>
+        <p>Please select the topics you are interested</p>
+        <Select defaultValue="Information Technology" style={{ width: 240 }}>
+          <Option value="Information Technology">Information Technology</Option>
+          <Option value="Business">Business</Option> 
+          <Option value="Accountancy">Accountancy</Option>
+          <Option value="Economics">Economics</Option> 
+          <Option value="Social Science">Social Science</Option> 
+          <Option value="Law">Law</Option> 
+          <Option value="Others">Others</Option> 
+        </Select>
+      </Modal>
+      <Modal title="Create a Room" visible={isCreateModalVisible} 
+      okText="Create"
+      cancelText="Cancel"
+      onOk={handleCreateOk} onCancel={handleCreateCancel}>
+        <Switch style={{float:"right"}} checkedChildren="Public" unCheckedChildren="Private" defaultChecked />
+        <p>Please select the topics you are interested</p>
+        <Select defaultValue="Information Technology" style={{ width: 240 }}>
+          <Option value="Information Technology">Information Technology</Option>
+          <Option value="Business">Business</Option> 
+          <Option value="Accountancy">Accountancy</Option>
+          <Option value="Economics">Economics</Option> 
+          <Option value="Social Science">Social Science</Option> 
+          <Option value="Law">Law</Option> 
+          <Option value="Others">Others</Option> 
+        </Select>
+        <p> </p>
+        <Select
+          mode="multiple"
+          showArrow
+          placeholder="Please tag your room"
+          tagRender={tagRender}
+          style={{ width: '100%' }}
+          options={options}
+        />
+
+      </Modal>
+      <a href="#" style={{position:"fixed",
+                          width:"60px",
+                          height:"60px",
+                          bottom:"195px",
+                          right:"140px",
+                          backgroundColor:"#c75724",
+                          fontSize:"30px",
+                          color:"#FFF",
+                          borderRadius:"50px",
+                          textAlign:"center",
+                          boxShadow: "2px 2px 3px #999"}}>
+        <ThunderboltOutlined style={{marginTop:"15px", width:"100%"}} onClick={showMatchModal}/>
+      </a>
+      <a href="#" style={{position:"fixed",
+                          width:"60px",
+                          height:"60px",
+                          bottom:"120px",
+                          right:"140px",
+                          backgroundColor:"#0C9",
+                          fontSize:"30px",
+                          color:"#FFF",
+                          borderRadius:"50px",
+                          textAlign:"center",
+                          boxShadow: "2px 2px 3px #999"}}>
+        <PlusOutlined style={{marginTop:"15px", width:"100%"}} onClick={showCreateModal}/>
+      </a>
+
+    </>
     )
 }
+const options = [{ value: 'seeking help' }, { value: 'open' }, { value: 'do not disturb' }, { value: 'someone is teaching' }];
 
+function tagRender(props) {
+  const { label, value, closable, onClose } = props;
+  const onPreventMouseDown = event => {
+    event.preventDefault();
+    event.stopPropagation();
+  };
+  return (
+    <Tag
+      color={value === 'do not disturb' ? 'red' : value === 'seeking help' ? 'yellow' : 'green'}
+      onMouseDown={onPreventMouseDown}
+      closable={closable}
+      onClose={onClose}
+      style={{ marginRight: 3 }}
+    >
+      {label}
+    </Tag>
+  );
+}
 
 Home.getLayout = (home) => (
   <MyLayout>
