@@ -7,11 +7,12 @@ import {
   SettingOutlined,
   DesktopOutlined,
   PieChartOutlined,
-  FileOutlined,
+  CalendarOutlined,
   TeamOutlined,
   UserOutlined,
   ClusterOutlined,
-  InfoCircleOutlined
+  InfoCircleOutlined,
+  LogoutOutlined
 } from '@ant-design/icons';
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -30,9 +31,14 @@ export default function MyLayout({ number, children }) {
           <Avatar src="747086.png" size="large"></Avatar>
         </div>
         <Menu theme="dark" defaultSelectedKeys={[number]} mode="inline">
-          <Menu.Item key="2" icon={<ClusterOutlined />}>
+          <Menu.Item key="1" icon={<ClusterOutlined />}>
             <Link href="/">
               <a>Lobby</a>
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="2" icon={<CalendarOutlined />}>
+            <Link href="/dashboard">
+              <a>Dashboard</a>
             </Link>
           </Menu.Item>
           <Menu.Item key="3" icon={<UserOutlined />}>
@@ -53,6 +59,12 @@ export default function MyLayout({ number, children }) {
           <Menu.Item key="6" icon={<SettingOutlined />}>
             <Link href="/settings">
               <a>Settings</a>
+            </Link>
+          </Menu.Item>
+
+          <Menu.Item key="6" icon={<LogoutOutlined />} style={{ position: 'absolute', bottom: '200px;'}}>
+            <Link href="/login/login">
+              <a>Sign Out</a>
             </Link>
           </Menu.Item>
         </Menu>

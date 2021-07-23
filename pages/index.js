@@ -360,7 +360,7 @@ function tagRender(props) {
 }
 
 Home.getLayout = (home) => (
-  <MyLayout number="2">
+  <MyLayout number="1">
     {home}
   </MyLayout>
 )
