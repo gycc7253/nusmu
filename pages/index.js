@@ -249,7 +249,7 @@ export default function Home() {
       title: 'Owner',
       dataIndex: 'owner',
       key: 'owner',
-      width: '20%',
+      width: '15%',
       ...getColumnSearchProps('owner'),
     },
     {
@@ -257,7 +257,7 @@ export default function Home() {
       key: 'go',
       fixed: 'right',
       width: 100,
-      render: () => <Link href="/room/room"><RightOutlined /></Link>,
+      render: () => <Link href="/rooms/room">Join</Link>,
     },
   ];
 
@@ -286,6 +286,8 @@ export default function Home() {
       onOk={handleCreateOk} onCancel={handleCreateCancel}>
         <Switch style={{float:"right"}} checkedChildren="Public" unCheckedChildren="Private" defaultChecked />
         <p>Please select the topics you are interested</p>
+        <Input placeholder="What do you want to call your room?" />
+        <p> </p>
         <Select defaultValue="Information Technology" style={{ width: 240 }}>
           <Option value="Information Technology">Information Technology</Option>
           <Option value="Business">Business</Option> 
@@ -358,7 +360,7 @@ function tagRender(props) {
 }
 
 Home.getLayout = (home) => (
-  <MyLayout>
+  <MyLayout number="2">
     {home}
   </MyLayout>
 )
