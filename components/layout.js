@@ -11,7 +11,8 @@ import {
   TeamOutlined,
   UserOutlined,
   ClusterOutlined,
-  LogoutOutlined 
+  InfoCircleOutlined,
+  LogoutOutlined
 } from '@ant-design/icons';
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -50,7 +51,12 @@ export default function MyLayout({ number, children }) {
               <a>Friends</a>
             </Link>
           </Menu.Item>
-          <Menu.Item key="5" icon={<SettingOutlined />}>
+          <Menu.Item key="5" icon={<InfoCircleOutlined />}>
+            <Link href="/info">
+              <a>Info</a>
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="6" icon={<SettingOutlined />}>
             <Link href="/settings">
               <a>Settings</a>
             </Link>
