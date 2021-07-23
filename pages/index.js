@@ -323,7 +323,7 @@ export default function Home() {
                           borderRadius:"50px",
                           textAlign:"center",
                           boxShadow: "2px 2px 3px #999"}}>
-        <ThunderboltOutlined style={{marginTop:"15px", width:"100%"}} onClick={showMatchModal}/>
+      <Tooltip placement="topRight" title="Quick Match" arrowPointAtCenter><ThunderboltOutlined style={{marginTop:"15px", width:"100%", }} onClick={showMatchModal}/></Tooltip>
       </a>
       <a href="#" style={{position:"fixed",
                           width:"60px",
@@ -336,7 +336,7 @@ export default function Home() {
                           borderRadius:"50px",
                           textAlign:"center",
                           boxShadow: "2px 2px 3px #999"}}>
-        <PlusOutlined style={{marginTop:"15px", width:"100%"}} onClick={showCreateModal}/>
+        <Tooltip placement="bottomRight" title="Create Room" arrowPointAtCenter><PlusOutlined style={{marginTop:"15px", width:"100%"}} onClick={showCreateModal}/></Tooltip>
       </a>
 
     </>
