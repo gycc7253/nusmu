@@ -104,18 +104,13 @@ export default function Profile() {
                 </Row>
             </Col>
         </Row>
-        <h2>
-            <Link href="/">
-            <a>Back to home</a>
-            </Link>
-        </h2>
         </div>  
         </>
     )
   }
 
   Profile.getLayout = (profile) => (
-    <MyLayout>
+    <MyLayout number={'3'}>
       {profile}
     </MyLayout>
   )
