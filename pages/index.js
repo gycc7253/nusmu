@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import MyLayout from '../components/layout'
-
+import Room from './room/room'
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
 }
 
 Home.getLayout = (home) => (
-  <MyLayout>
+  <Room>
     {home}
-  </MyLayout>
+  </Room>
 )
