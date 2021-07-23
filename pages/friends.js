@@ -6,6 +6,19 @@ const columns = [
     {
       title: 'Ranking',
       dataIndex: 'ranking',
+      render: text => text === 1 ? 
+      <div>
+      <Avatar src="medal1.png" size="large" style={{marginRight:"20px"}}></Avatar>
+      </div>
+      : text === 2 ? 
+      <div>
+      <Avatar src="medal2.png" size="large" style={{marginRight:"20px"}}></Avatar>
+      </div>
+      : text === 3 ? 
+      <div>
+      <Avatar src="medal3.png" size="large" style={{marginRight:"20px"}}></Avatar>
+      </div>
+      : <div style={{marginLeft:"20px"}}>{text}</div>
     },
     {
       title: 'Name',
