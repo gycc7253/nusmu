@@ -5,7 +5,7 @@ import MyLayout from '../components/layout'
 import { Table, Input, Button, Space, Tag } from 'antd';
 import 'antd/dist/antd.css';
 import Highlighter from 'react-highlight-words';
-import { SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined, RightOutlined } from '@ant-design/icons';
 
 const data = [
   {
@@ -224,6 +224,13 @@ export default function Home() {
       key: 'owner',
       width: '20%',
       ...getColumnSearchProps('owner'),
+    },
+    {
+      title: 'Action',
+      key: 'go',
+      fixed: 'right',
+      width: 100,
+      render: () => <Link href="/room/room"><RightOutlined /></Link>,
     },
   ];
 
