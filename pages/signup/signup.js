@@ -40,12 +40,31 @@ const openNotificationWithIcon = type => {
                 }}
                 layout="horizontal"
             >
-                <Form.Item label="Username">
+                <Form.Item 
+                    label="Username"
+                    name="username"
+                    rules={[
+                        {
+                            required: true,
+                            message: 'Please input your username!',
+                        },
+                        ]}
+                    >
                 <Input />
                 </Form.Item>
-                <Form.Item label="Email Address">
+
+                <Form.Item 
+                    label="Email Address"
+                    name="email"
+                    rules={[
+                        {
+                            required: true,
+                            message: 'Please input your email address!',
+                        },
+                        ]}>
                 <Input />
                 </Form.Item>
+                
                 <Form.Item label="Motto">
                 <Input />
                 </Form.Item>
