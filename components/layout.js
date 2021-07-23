@@ -7,7 +7,7 @@ import {
   SettingOutlined,
   DesktopOutlined,
   PieChartOutlined,
-  FileOutlined,
+  CalendarOutlined,
   TeamOutlined,
   UserOutlined,
   ClusterOutlined
@@ -29,9 +29,14 @@ export default function MyLayout({ number, children }) {
           <Avatar src="747086.png" size="large"></Avatar>
         </div>
         <Menu theme="dark" defaultSelectedKeys={[number]} mode="inline">
-          <Menu.Item key="2" icon={<ClusterOutlined />}>
+          <Menu.Item key="1" icon={<ClusterOutlined />}>
             <Link href="/">
               <a>Lobby</a>
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="2" icon={<CalendarOutlined />}>
+            <Link href="/dashboard">
+              <a>Dashboard</a>
             </Link>
           </Menu.Item>
           <Menu.Item key="3" icon={<UserOutlined />}>
