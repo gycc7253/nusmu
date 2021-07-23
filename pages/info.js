@@ -1,121 +1,58 @@
 import Link from 'next/link'
+import React, { useState } from 'react';
 import 'antd/dist/antd.css';
 import MyLayout from '../components/layout'
 import { Avatar } from 'antd';
 import { Row, Col } from 'antd';
-import { Card, Space, Divider, Progress, Popover } from 'antd';
+import { Card, Carousel, Radio, Divider, Progress, Popover } from 'antd';
 import { grey } from '@ant-design/colors';
 import { StarOutlined, FormOutlined, TeamOutlined, UnlockOutlined, 
     HistoryOutlined, MailOutlined, MessageOutlined, RiseOutlined, ContactsOutlined, PayCircleOutlined } from '@ant-design/icons';
 
 
-export default function Profile() {
+export default function Info() {
+
+    const contentStyle = {
+        color: '#fff',
+        width: '1200px',
+        display: 'table-cell',
+        height: '500px',
+        verticalAlign: 'middle',
+        textAlign: 'center',
+        background: '#364d79',
+        fontFamily: 'Helvetica',
+    };
+
+
     return (
         <>
-        <div style={{
-            background: "#f2f2f2",
-            padding: "30px"}}>
-        <Row gutter={8}>
-            <Col span={8}>
-                <Card title={<Avatar
-                        src="147144.png"
-                        shape="square"
-                        size="64"
-                        style={{verticalAlign: 'middle'}}
-                    />} extra="level 5" bordered={false}>
-                    <Row>
-                        <Col span={12}>
-                        <b>Atlantica</b>
-                        </Col>
-                        <Col span={12}>
-                        <ContactsOutlined style={{margin: '4px'}}/> UserID:
-                        <br/>1284293
-                        </Col>
-                    </Row>
-                    <Divider />
-                    <span>
-                        <MailOutlined style={{margin: '4px'}}/> Mail:
-                        <br/>e0424654@u.nus.edu
-                    </span>
-                    <Divider />
-                        <RiseOutlined style={{margin: '4px'}}/> 
-                    <span>
-                        Experience:
-                    </span>
-                    <Progress percent={80} size="small" />
-                    <Divider />
-                    <PayCircleOutlined style={{margin: '4px'}}/> 
-                    <span>
-                        Coins:
-                    </span>
-                    <h4>
-                        32
-                    </h4>
-                    <Divider />
-                    <span>
-                        <HistoryOutlined  style={{margin: '4px'}}/>                           
-                        <span>
-                            Hours studies this week:
-                        </span>
-                        <h4>
-                            14
-                        </h4>
-                    </span>
-                    <Divider />
-                    <span>
-                        <MessageOutlined  style={{margin: '4px'}}/> Motto:
-                        <br/>Never stop until you reach the destination.
-                    </span>
-                </Card>
-            </Col>
-
-            <Col span={16}>
-                <Row gutter={4} style={{ marginBottom: 4 }}>
-                    <Col span={8}>
-                        <Card title="Basic" bordered={false} extra={<Popover content="Edit"><FormOutlined style={{ cursor: 'pointer'}} /></Popover>}>
-                            <span>
-                                Edit personal information.
-                            </span>
-                        </Card>
-                    </Col>
-                    <Col span={8}>
-                        <Card title="Star" bordered={false} extra={<Popover content="Edit"><StarOutlined style={{ cursor: 'pointer'}} /></Popover>}>
-                            <span>
-                                Number of stars received: 15
-                            </span>
-                        </Card>
-                    </Col>
-                </Row>
-                <Row gutter={4}>
-                    <Col span={8}>
-                        <Card title="Friends" bordered={false} extra={<Popover content="Edit"><TeamOutlined style={{ cursor: 'pointer'}} /></Popover>}>
-                            <span>
-                                Click to view friends.
-                            </span>
-                        </Card>
-                    </Col>
-                    <Col span={8}>
-                        <Card title="Password" bordered={false} extra={<Popover content="Edit"><UnlockOutlined style={{ cursor: 'pointer'}}/></Popover>}>
-                            <span>
-                                Edit your password.
-                            </span>
-                        </Card>
-                    </Col>
-                </Row>
-            </Col>
-        </Row>
-        <h2>
-            <Link href="/">
-            <a>Back to home</a>
-            </Link>
-        </h2>
-        </div>
+        <Carousel dotPosition='left' >
+            <div>
+            <h2 style={contentStyle}>This is a multi-user online study lounge that allows you to not only study in peace,<br/> but also interact with friends and make new friends.</h2>
+            </div>
+            <div>
+            <h2 style={contentStyle}>Each day you log in to study, you earn 1-2 coins depending on how long you study. <br/> And you can tip others using the coins you earn to raise their star.</h2>
+            </div>
+            <div>
+            <h2 style={contentStyle}>Experience is required to up your level. <br/> With higher levels, you can unlock more advanced functions of study lounge.</h2>
+            </div>
+            <div>
+            <h2 style={contentStyle}>You can customize your own study room, making it private or public. <br/> You can also choose the subjects or categories to tag your study room.</h2>
+            </div>
+        </Carousel>
         </>
     )
-  }
 
-  Profile.getLayout = (profile) => (
+    Info.getLayout = (info) => (
     <MyLayout>
-      {profile}
+        {info}
+    </MyLayout>
+    )
+}
+
+
+Info.getLayout = (info) => (
+    <MyLayout number={'3'}>
+      {info}
     </MyLayout>
   )
