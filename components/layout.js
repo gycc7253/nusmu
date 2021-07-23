@@ -62,7 +62,7 @@ export default function MyLayout({ number, children }) {
             </Link>
           </Menu.Item>
 
-          <Menu.Item key="6" icon={<LogoutOutlined />} style={{ position: 'absolute', bottom: '200px;'}}>
+          <Menu.Item key="7" icon={<LogoutOutlined />} style={{ position: 'absolute', bottom: '200px;'}}>
             <Link href="/login/login">
               <a>Sign Out</a>
             </Link>

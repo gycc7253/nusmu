@@ -5,7 +5,7 @@ import { Avatar } from 'antd';
 import { Row, Col } from 'antd';
 import { Card, Space, Divider, Progress, Popover } from 'antd';
 import { grey } from '@ant-design/colors';
-import { StarOutlined, FormOutlined, TeamOutlined, UnlockOutlined, 
+import { ScheduleOutlined, FormOutlined, TeamOutlined, UnlockOutlined, 
     HistoryOutlined, MailOutlined, MessageOutlined, RiseOutlined, ContactsOutlined, PayCircleOutlined } from '@ant-design/icons';
 
 
@@ -44,6 +44,11 @@ export default function Profile() {
                     </span>
                     <Progress percent={80} size="small" />
                     <Divider />
+                    <span>
+                        <MessageOutlined  style={{margin: '4px'}}/> Motto:
+                        <br/>Never stop until you reach the destination.
+                    </span>
+                    <Divider />
                     <PayCircleOutlined style={{margin: '4px'}}/> 
                     <span>
                         Coins:
@@ -61,11 +66,6 @@ export default function Profile() {
                             14
                         </h4>
                     </span>
-                    <Divider />
-                    <span>
-                        <MessageOutlined  style={{margin: '4px'}}/> Motto:
-                        <br/>Never stop until you reach the destination.
-                    </span>
                 </Card>
             </Col>
 
@@ -79,16 +79,18 @@ export default function Profile() {
                         </Card>
                     </Col>
                     <Col span={8}>
-                        <Card title="Star" bordered={false} extra={<Popover content="Edit"><StarOutlined style={{ cursor: 'pointer'}} /></Popover>}>
+                        <Card title="Tasks" bordered={false} extra={
+                        <Link href="/tasks"><Popover content="View"><ScheduleOutlined style={{ cursor: 'pointer'}} /></Popover></Link>}>
                             <span>
-                                Number of stars received: 1128
+                                View tasks.
                             </span>
                         </Card>
                     </Col>
                 </Row>
                 <Row gutter={4}>
                     <Col span={8}>
-                        <Card title="Friends" bordered={false} extra={<Popover content="Edit"><TeamOutlined style={{ cursor: 'pointer'}} /></Popover>}>
+                        <Card title="Friends" bordered={false} extra={
+                        <Link href="/friends"><Popover content="View"><TeamOutlined style={{ cursor: 'pointer'}} /></Popover></Link>}>
                             <span>
                                 Click to view friends.
                             </span>
