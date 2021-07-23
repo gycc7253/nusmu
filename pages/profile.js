@@ -81,7 +81,7 @@ export default function Profile() {
                     <Col span={8}>
                         <Card title="Star" bordered={false} extra={<Popover content="Edit"><StarOutlined style={{ cursor: 'pointer'}} /></Popover>}>
                             <span>
-                                Number of stars received: 15
+                                Number of stars received: 1128
                             </span>
                         </Card>
                     </Col>
