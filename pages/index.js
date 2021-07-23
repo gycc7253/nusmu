@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Link from 'next/link'
 import React, { useState } from 'react';
 import MyLayout from '../components/layout'
-import Room from './room/room'
 import { Table, Input, Button, Space, Tag } from 'antd';
 import 'antd/dist/antd.css';
 import Highlighter from 'react-highlight-words';
@@ -242,7 +241,7 @@ export default function Home() {
 
 
 Home.getLayout = (home) => (
-  <Room>
+  <MyLayout>
     {home}
-  </Room>
+  </MyLayout>
 )
