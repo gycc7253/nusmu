@@ -28,7 +28,14 @@ export default function MyLayout({ number, children }) {
           height: '40px',
           margin: '16px',
           textAlign: 'center'}}>
-          <Avatar src="747086.png" size="large"></Avatar>
+          <Avatar src="147144.png" size="large"></Avatar>
+        </div>
+        <div style={{
+          height: '40px',
+          margin: '16px',
+          color: '#fff',
+          paddingLeft: '7px'}}>
+         Good Afternoon, Atlantica!
         </div>
         <Menu theme="dark" defaultSelectedKeys={[number]} mode="inline">
           <Menu.Item key="1" icon={<ClusterOutlined />}>

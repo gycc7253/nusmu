@@ -43,6 +43,9 @@ export default function Profile() {
                         Experience:
                     </span>
                     <Progress percent={80} size="small" />
+                    <span>
+                        Stay online for 10 mroe hours to level up to lv.6
+                    </span>
                     <Divider />
                     <span>
                         <MessageOutlined  style={{margin: '4px'}}/> Motto:
@@ -60,7 +63,7 @@ export default function Profile() {
                     <span>
                         <HistoryOutlined  style={{margin: '4px'}}/>                           
                         <span>
-                            Hours studies this week:
+                            Hours studied this week:
                         </span>
                         <h4>
                             14
@@ -71,14 +74,14 @@ export default function Profile() {
 
             <Col span={16}>
                 <Row gutter={4} style={{ marginBottom: 4 }}>
-                    <Col span={8}>
+                    <Col span={12}>
                         <Card title="Basic" bordered={false} extra={<Popover content="Edit"><FormOutlined style={{ cursor: 'pointer'}} /></Popover>}>
                             <span>
                                 Edit personal information.
                             </span>
                         </Card>
                     </Col>
-                    <Col span={8}>
+                    <Col span={12}>
                         <Card title="Tasks" bordered={false} extra={
                         <Link href="/tasks"><Popover content="View"><ScheduleOutlined style={{ cursor: 'pointer'}} /></Popover></Link>}>
                             <span>
@@ -88,7 +91,7 @@ export default function Profile() {
                     </Col>
                 </Row>
                 <Row gutter={4}>
-                    <Col span={8}>
+                    <Col span={12}>
                         <Card title="Friends" bordered={false} extra={
                         <Link href="/friends"><Popover content="View"><TeamOutlined style={{ cursor: 'pointer'}} /></Popover></Link>}>
                             <span>
@@ -96,7 +99,7 @@ export default function Profile() {
                             </span>
                         </Card>
                     </Col>
-                    <Col span={8}>
+                    <Col span={12}>
                         <Card title="Password" bordered={false} extra={<Popover content="Edit"><UnlockOutlined style={{ cursor: 'pointer'}}/></Popover>}>
                             <span>
                                 Edit your password.

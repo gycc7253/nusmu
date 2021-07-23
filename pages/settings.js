@@ -77,7 +77,7 @@ export default function Settings() {
   }
 
   Settings.getLayout = (settings) => (
-    <MyLayout number="5">
+    <MyLayout number="6">
       {settings}
     </MyLayout>
   )

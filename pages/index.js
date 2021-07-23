@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import React, { useState } from 'react';
 import MyLayout from '../components/layout'
-import { Table, Input, Button, Space, Tag, Modal, Select, Switch } from 'antd';
+import { Table, PageHeader, Input, Button, Space, Tag, Modal, Select, Switch } from 'antd';
 import 'antd/dist/antd.css';
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined, RightOutlined, PlusOutlined, ThunderboltOutlined, CloseOutlined, CheckOutlined} from '@ant-design/icons';
@@ -263,6 +263,10 @@ export default function Home() {
 
   return (
     <>
+     <PageHeader
+    className="site-page-header"
+    title="Join a room you are interested in:"
+    />
       <Table columns={columns} dataSource={data}/>
       <Modal title="Quick Match" visible={isMatchModalVisible} 
       okText="Join Room"

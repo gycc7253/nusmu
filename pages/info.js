@@ -52,7 +52,7 @@ export default function Info() {
 
 
 Info.getLayout = (info) => (
-    <MyLayout number={'3'}>
+    <MyLayout number={'5'}>
       {info}
     </MyLayout>
   )
