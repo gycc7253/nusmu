@@ -1,15 +1,35 @@
 import Link from 'next/link'
-export default function FirstRoom() {
+import DailyIframe from '@daily-co/daily-js';
+import MyLayout from '../../components/layout'
+import React from 'react';
+
+
+export default function Room() {
+    React.useEffect(() => {
+        let callFrame = DailyIframe.createFrame({
+            showLeaveButton: true,
+            iframeStyle: {
+                position: 'fixed',
+                top: '10%',
+                left: '20%',
+                bottom: '10%',
+                right: '20%',
+                width: '75%',
+                height: '75%'
+            }
+        });
+        callFrame.join({ url: 'https://nuovonatura.daily.co/dev-Test' });
+    });
+
     return (
         <>
-        <h1 className="title">
-        Learn <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-        <h2>
-            <Link href="/">
-            <a>Back to home</a>
-            </Link>
-        </h2>
         </>
-    )
-  }
+    );
+}
+  
+
+  Room.getLayout = (home) => (
+    <MyLayout>
+      {home}
+    </MyLayout>
+  )
