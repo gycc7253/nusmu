@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import React, { useState } from 'react';
 import MyLayout from '../components/layout'
-import { Table, Input, Button, Space, Tag, Modal, Select, Switch } from 'antd';
+import { Table, Input, Button, Space, Tag, Modal, Select, Switch, Tooltip } from 'antd';
 import 'antd/dist/antd.css';
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined, RightOutlined, PlusOutlined, ThunderboltOutlined, CloseOutlined, CheckOutlined} from '@ant-design/icons';
@@ -319,7 +319,7 @@ export default function Home() {
                           borderRadius:"50px",
                           textAlign:"center",
                           boxShadow: "2px 2px 3px #999"}}>
-        <ThunderboltOutlined style={{marginTop:"15px", width:"100%"}} onClick={showMatchModal}/>
+      <Tooltip placement="topRight" title="Quick Match" arrowPointAtCenter><ThunderboltOutlined style={{marginTop:"15px", width:"100%", }} onClick={showMatchModal}/></Tooltip>
       </a>
       <a href="#" style={{position:"fixed",
                           width:"60px",
@@ -332,7 +332,7 @@ export default function Home() {
                           borderRadius:"50px",
                           textAlign:"center",
                           boxShadow: "2px 2px 3px #999"}}>
-        <PlusOutlined style={{marginTop:"15px", width:"100%"}} onClick={showCreateModal}/>
+        <Tooltip placement="bottomRight" title="Create Room" arrowPointAtCenter><PlusOutlined style={{marginTop:"15px", width:"100%"}} onClick={showCreateModal}/></Tooltip>
       </a>
 
     </>
