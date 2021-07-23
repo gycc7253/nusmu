@@ -1,3 +1,4 @@
 This is a starter template for [Learn Next.js](https://nextjs.org/learn).
 
-Hello
+
+This is a handicraft by nusmu, for NUSLifeHack.
