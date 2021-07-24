@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Router from 'next/router'
 import DailyIframe from '@daily-co/daily-js';
 import MyLayout from '../../components/layout'
 import React,{useState} from 'react';
@@ -7,10 +8,12 @@ import { UserAddOutlined,  StarOutlined } from '@ant-design/icons';
 
 const style = { background: 'transparent', padding: '5px'};
 
+let callFrame;
+
 export default function Room() {
   
     React.useEffect(() => {
-        let callFrame = DailyIframe.createFrame({
+        callFrame = DailyIframe.createFrame({
             showLeaveButton: true,
             iframeStyle: {
                 position: 'absolute',
@@ -26,6 +29,11 @@ export default function Room() {
     });
 
     const [isModalVisible, setIsModalVisible] = useState(false);
+
+    const handleLeave = () => {
+      callFrame.destroy();
+      Router.push('/');
+    }
 
     const showModal = () => {
       setIsModalVisible(true);
@@ -49,9 +57,15 @@ export default function Room() {
                 </div>
               </Col>
 
-              <Col className="gutter-row" span={12}>
+              <Col className="gutter-row" span={8}>
                 <div style={style}>
                   <h1>Title: CS1101S is hard!!</h1>
+                </div>
+              </Col>
+
+              <Col className="gutter-row" span={8}>
+                <div style={style}>
+                  <button onClick={handleLeave}>Leave Meeting!</button>
                 </div>
               </Col>
             </Row>
