@@ -2,7 +2,8 @@ import Link from 'next/link'
 import DailyIframe from '@daily-co/daily-js';
 import MyLayout from '../../components/layout'
 import React,{useState} from 'react';
-import { Row, Col, Tag, Modal, Button, Divider, Avatar} from 'antd';
+import { Row, Col, Tag, Modal, Radio, Avatar} from 'antd';
+import { UserAddOutlined,  StarOutlined } from '@ant-design/icons';
 
 const style = { background: 'transparent', padding: '5px'};
 
@@ -84,36 +85,28 @@ export default function Room() {
         <div style={{margin:'10px 70px'}}>
           <h1>Participants: </h1>
           <Avatar src="/1.png" size="large" style={{marginRight:"20px"}} onClick={showModal}></Avatar>
-          <Modal title="Li Beining" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+          <Modal title="Li Beining" okText="Confirm" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
             <div>
-              <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-                <Col className="gutter-row" span={12}>
-                <input type="checkbox" id="addFriend" name="addFriend" value="addFriend"></input>
-                <label for="addFriend"> Add Friend</label><br></br>
-                </Col>
-
-                <Col className="gutter-row" span={12}>
-                <input type="checkbox" id="star" name="star" value="star"></input>
-                <label for="star"> Star</label><br></br>
-                </Col>
-              </Row>
+            <Radio.Group defaultValue="a" size="large">
+              <Radio.Button value="a"> <UserAddOutlined />
+                <label for="addFriend"> Add Friend</label><br></br></Radio.Button>
+              <Radio.Button value="b"> <StarOutlined />
+                <label for="star"> Buy him a Star</label><br></br></Radio.Button>
+     
+            </Radio.Group>
             </div>
           </Modal>
 
           <Avatar src="/2.png" size="large" style={{marginRight:"20px"}} onClick={showModal}></Avatar>
-          <Modal title="Meng Jiayu" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+          <Modal title="Meng Jiayu" okText="Confirm" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
             <div>
-              <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-                <Col className="gutter-row" span={12}>
-                <input type="checkbox" id="addFriend" name="addFriend" value="addFriend"></input>
-                <label for="addFriend"> Add Friend</label><br></br>
-                </Col>
-
-                <Col className="gutter-row" span={12}>
-                <input type="checkbox" id="star" name="star" value="star"></input>
-                <label for="star"> Star</label><br></br>
-                </Col>
-              </Row>
+            <Radio.Group defaultValue="a" size="large">
+              <Radio.Button value="a"> <UserAddOutlined />
+                <label for="addFriend"> Add Friend</label><br></br></Radio.Button>
+              <Radio.Button value="b"> <StarOutlined />
+                <label for="star"> Buy him a Star</label><br></br></Radio.Button>
+     
+            </Radio.Group>
             </div>
           </Modal>
 
