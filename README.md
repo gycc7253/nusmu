@@ -1,6 +1,6 @@
 # The Study Group Guide
 The Study Group is an online study platform that provides public study room for university students to study together.
-With the help of our app, in this difficult times of COVID-19, our target audience is granted capacity to socialize, making new friends and maintaining relationship with existing friends.
+In this difficult times of COVID-19, our target audience is granted capacity to socialize with the help of our app, making new friends and maintaining relationship with existing friends.
 ## Features
 Lobby
 
@@ -31,7 +31,7 @@ Display the list of available study rooms.
 This is one of the most powerful and useful command of The Study Group, it is the public entry point.
 
 ## Study Room
-Video conference portals that allows you to virtually present in the online study room.
+Video conference portals that allows you to be virtually present in the online study room.
 ![alt text](./public/videoCall.png)
 #### Functionality:
 * Turn on/off video
@@ -78,7 +78,7 @@ A minimalistic information stack and tip center for users
 View the slides, hover cursor over the carousel to pause the autoplay to read.
 
 ## Settings
-Edit settings of this app
+Configure the settings of this app
 ![alt text](./public/settingsss.png)
 ##### Functionality
 * Account
