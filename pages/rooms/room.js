@@ -14,7 +14,7 @@ export default function Room() {
   
     React.useEffect(() => {
         callFrame = DailyIframe.createFrame({
-            showLeaveButton: true,
+            showLeaveButton: false,
             iframeStyle: {
                 position: 'absolute',
                 top: '13%',
