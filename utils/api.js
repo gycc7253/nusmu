@@ -11,7 +11,7 @@
  * See https://docs.daily.co/reference#create-room for more information on how
  * to use the Daily REST API to create rooms and what options are available. 
  */
-async function createRoom() {
+export async function createRoom() {
 
 //   const exp = Math.round(Date.now() / 1000) + 60 * 30;
 //   const options = {
@@ -49,4 +49,18 @@ async function createRoom() {
 
 }
 
-export default { createRoom };
+export async function getList() {
+  const fetch = require('node-fetch');
+
+  const url = "https://api.daily.co/v1/rooms";
+  const options = {
+    method: 'GET', 
+    headers: {
+      Accept: 'application/json',
+      Authorization: 'Bearer 399d95e0af8c6f9035e42b774a0cb5ed85cdc04f26c34347df1b8e8560c5c271'
+    }
+  }
+
+  let response = await fetch(url, options), result = await response.json();
+  return result;
+}

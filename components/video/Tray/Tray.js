@@ -106,7 +106,14 @@ export default function Tray(props) {
   }, [callObject]);
 
   return (
-    <div className={styles.tray}>
+    <div className={styles.tray} style={{
+      flex: "none",
+      height: "60px",
+      backgroundColor: "#f2f2f2",
+      padding: "0 10px",
+      display: "flex",
+      alignItems: "center",
+    }}>
       <TrayButton
         type={TYPE_MUTE_CAMERA}
         disabled={props.disabled}

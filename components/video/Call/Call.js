@@ -166,15 +166,32 @@ export default function Call() {
   const [largeTiles, smallTiles] = getTiles();
   const message = getMessage(callState);
   return (
-    <div className={styles.call}>
-      <div className={styles.largetiles}>
+    <div className="call" style={{
+      position: "relative", /* To make it a "positioned" container so children layout works */
+      height: "calc(100% - 60px)", /* Space for the tray */
+    }}>
+      <div className="largetiles" style={{
+        height: "calc(100% - 132.5px)",
+        width: "80%",
+        position: "relative",
+        left: "50%",
+        transform: "translate(-50%, 0)",
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(30%, 1fr))",
+        alignItems: "center",
+        overflowY: "scroll",
+      }}>
         {
           !message
             ? largeTiles
             : null /* Avoid showing large tiles to make room for the message */
         }
       </div>
-      <div className={styles.smalltiles}>{smallTiles}</div>
+      <div className="smalltiles" style={{
+        height: "132.5px", /* Video height + 10px padding either side */
+        display: "flex",
+        alignItems: "center",
+      }}>{smallTiles}</div>
       {message && (
         <CallMessage
           header={message.header}

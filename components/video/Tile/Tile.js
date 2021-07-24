@@ -93,7 +93,16 @@ export default function Tile(props) {
     // Show overlay when video is unavailable. Audio may be unavailable too.
     return (
       videoUnavailableMessage && (
-        <p className={styles.overlay}>
+        <p className={styles.tile.overlay} style={{
+          position: "absolute",
+          color: "#ffffff",
+          top: "50%",
+          left: "50%",
+          margin: "0",
+          transform: "translate(-50%, -50%)",
+          fontSize: "14px",
+          lineHeight: "17px",
+        }}>
           {videoUnavailableMessage}
           {audioUnavailableMessage && (
             <>
@@ -112,7 +121,17 @@ export default function Tile(props) {
       !props.disableCornerMessage &&
       audioUnavailableMessage &&
       !videoUnavailableMessage && (
-        <p className={styles.corner}>{audioUnavailableMessage}</p>
+        <p className={styles.tile.corner} style={{
+          position: "absolute",
+          color: "#ffffff",
+          backgroundColor: "#000000",
+          padding: "10px",
+          margin: "0",
+          bottom: "0",
+          left: "0",
+          fontSize: "14px",
+          lineHeight: "17px",
+        }}>{audioUnavailableMessage}</p>
       )
     );
   }
@@ -125,8 +144,27 @@ export default function Tile(props) {
   }
 
   return (
-    <div className={getClassNames()} onClick={props.onClick}>
-      <div className={styles.background} />
+    <div className={getClassNames()} onClick={props.onClick} style={
+      props.isLarge 
+        ? {
+          position: "relative",
+          margin: "2px",
+        } : {
+          width: "200px",
+          margin: "0 10px",
+          position: "relative",
+        }
+    }>
+      <div className={styles.tile.background} style={
+        props.isLarge 
+          ? {
+            backgroundColor: "#000000",
+            width: "100%",
+            paddingTop: "56.25%", /* Hard-coded 16:9 aspect ratio */
+          } : {
+            borderRadius: "4px",
+          }
+      }/>
       {getOverlayComponent()}
       {getVideoComponent()}
       {getAudioComponent()}

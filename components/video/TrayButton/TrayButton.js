@@ -22,6 +22,18 @@ export default function TrayButton(props) {
       disabled={props.disabled}
       onClick={props.onClick}
       className={'tray-button' + (props.newButtonGroup ? ' new-group' : '')}
+      style={
+        props.newButtonGroup 
+          ? {
+            marginLeft: "auto",
+          } : {
+            width: "44px",
+            height: "44px",
+            border: "none",
+            backgroundColor: "transparent",
+            margin: "0 5px",
+          }
+      }
     >
       <Icon type={props.type} highlighted={props.highlighted} />
     </button>

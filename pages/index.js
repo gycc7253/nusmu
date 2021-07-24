@@ -8,7 +8,7 @@ import Highlighter from 'react-highlight-words';
 import { SearchOutlined, RightOutlined, PlusOutlined, ThunderboltOutlined, CloseOutlined, CheckOutlined} from '@ant-design/icons';
 
 import Call from '../components/video/Call/Call';
-import api from '../utils/api';
+import { createRoom, getList } from '../utils/api';
 // import styles from './App.module.css';
 import Tray from '../components/video/Tray/Tray';
 import CallObjectContext from '../utils/CallObjectContext';
@@ -24,72 +24,73 @@ const STATE_LEAVING = 'STATE_LEAVING';
 const STATE_ERROR = 'STATE_ERROR';
 
 const { Option } = Select;
-const data = [
-  {
-    key: '1',
-    id: '1001',
-    title: 'CS1101S is hard!!',
-    tag: ['seeking help', 'open'],
-    topic: 'computer science',
-    owner: 'Cliffen Lee',
-  },
-  {
-    key: '2',
-    id: '1002',
-    title: 'CS3230 is fun!!',
-    tag: ['someone is teaching', 'open'],
-    topic: 'computer science',
-    owner: 'Cliffen Lee',
-  },
-  {
-    key: '3',
-    id: '1003',
-    title: 'Quiet self study room',
-    tag: ['do not disturb'],
-    topic: 'computer science',
-    owner: 'Cliffen Lee',
-  },
-  {
-    key: '4',
-    id: '1004',
-    title: 'CS1101S is hard!!',
-    tag: ['seeking help', 'open'],
-    topic: 'computer science',
-    owner: 'Cliffen Lee',
-  },
-  {
-    key: '5',
-    id: '1005',
-    title: 'CS1101S is hard!!',
-    tag: ['seeking help', 'open'],
-    topic: 'computer science',
-    owner: 'Cliffen Lee',
-  },
-  {
-    key: '6',
-    id: '1006',
-    title: 'CS1101S is hard!!',
-    tag: ['seeking help', 'open'],
-    topic: 'computer science',
-    owner: 'Cliffen Lee',
-  },
-  {
-    key: '7',
-    id: '1007',
-    title: 'CS1101S is hard!!',
-    tag: ['seeking help', 'open'],
-    topic: 'computer science',
-    owner: 'Cliffen Lee',
-  },
-  {
-    key: '8',
-    id: '1008',
-    title: 'CS1101S is hard!!',
-    tag: ['seeking help', 'open'],
-    topic: 'computer science',
-    owner: 'Cliffen Lee',
-  },
-];
+let data;
+// const data = [
+//   {
+//     key: '1',
+//     id: '1001',
+//     title: 'CS1101S is hard!!',
+//     tag: ['seeking help', 'open'],
+//     topic: 'computer science',
+//     owner: 'Cliffen Lee',
+//   },
+//   {
+//     key: '2',
+//     id: '1002',
+//     title: 'CS3230 is fun!!',
+//     tag: ['someone is teaching', 'open'],
+//     topic: 'computer science',
+//     owner: 'Cliffen Lee',
+//   },
+//   {
+//     key: '3',
+//     id: '1003',
+//     title: 'Quiet self study room',
+//     tag: ['do not disturb'],
+//     topic: 'computer science',
+//     owner: 'Cliffen Lee',
+//   },
+//   {
+//     key: '4',
+//     id: '1004',
+//     title: 'CS1101S is hard!!',
+//     tag: ['seeking help', 'open'],
+//     topic: 'computer science',
+//     owner: 'Cliffen Lee',
+//   },
+//   {
+//     key: '5',
+//     id: '1005',
+//     title: 'CS1101S is hard!!',
+//     tag: ['seeking help', 'open'],
+//     topic: 'computer science',
+//     owner: 'Cliffen Lee',
+//   },
+//   {
+//     key: '6',
+//     id: '1006',
+//     title: 'CS1101S is hard!!',
+//     tag: ['seeking help', 'open'],
+//     topic: 'computer science',
+//     owner: 'Cliffen Lee',
+//   },
+//   {
+//     key: '7',
+//     id: '1007',
+//     title: 'CS1101S is hard!!',
+//     tag: ['seeking help', 'open'],
+//     topic: 'computer science',
+//     owner: 'Cliffen Lee',
+//   },
+//   {
+//     key: '8',
+//     id: '1008',
+//     title: 'CS1101S is hard!!',
+//     tag: ['seeking help', 'open'],
+//     topic: 'computer science',
+//     owner: 'Cliffen Lee',
+//   },
+// ];
 
 export default function Home() {
   const [searchText, setSearchText] = useState('');
@@ -285,12 +286,38 @@ export default function Home() {
   const [callObject, setCallObject] = useState(null);
 
   /**
+   * Get list of rooms
+   */
+  const getRooms = useCallback(() => {
+    setAppState(STATE_IDLE);
+    return getList()
+      .then((result) => result.data)
+      .catch((error) => {
+        console.log('Error getting room list', error);
+      });
+  }, []);
+
+  const convertData = useCallback((list) => {
+    let id = 1;
+    for (const item of list) {
+      data.push({
+        key: id,
+        id: id,
+        title: item.name,
+        tag: ['seeking help', 'open'],
+        topic: 'computer science',
+        owner: 'Cliffen Lee',
+      });
+      id += 1;
+    }
+  });
+
+  /**
    * Creates a new call room.
    */
   const createCall = useCallback(() => {
     setAppState(STATE_CREATING);
-    return api
-      .createRoom()
+    return createRoom()
       .then((room) => room.url)
       .catch((error) => {
         console.log('Error creating room', error);
@@ -468,8 +495,18 @@ export default function Home() {
    */
   const enableStartButton = appState === STATE_IDLE;
 
+  // useEffect(() => {
+  //   data = [];
+  //   getRooms().then((list) => convertData(list));
+  // })
+
   return (
-    <div className="app">
+    <div className="app" style={{
+      backgroundColor: "#4a4a4a",
+      position: "absolute",
+      width: "80%",
+      height: "95%",
+    }}>
       {showCall ? (
         // NOTE: for an app this size, it's not obvious that using a Context
         // is the best choice. But for larger apps with deeply-nested components

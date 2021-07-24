@@ -62,9 +62,19 @@ export default function Chat(props) {
   useEffect(() => {}, [chatHistory]);
 
   return props.onClickDisplay ? (
-    <div className={styles.chat}>
+    <div className={styles.chat} style={{
+      position: "absolute",
+      right: "10px",
+      bottom: "75px",
+      width: "250px",
+      height: "calc(100% - 150px)",
+      backgroundColor: "#f2f2f2",
+      borderRadius: "4px",
+    }}>
       {chatHistory.map((entry, index) => (
-        <div key={`entry-${index}`} className={styles.messageList}>
+        <div key={`entry-${index}`} className={styles.messageList} style={{
+          padding: "10px",
+        }}>
           <b>{entry.sender}</b>: {entry.message}
         </div>
       ))}
@@ -73,12 +83,26 @@ export default function Chat(props) {
         <input
           id="chatInput"
           className={styles.chat.input}
+          style={{
+            position: "absolute",
+            bottom: "0px",
+            width: "200px",
+            height: "25px",
+          }}
           type="text"
           placeholder="Type your message here.."
           value={inputValue}
           onChange={handleChange}
         ></input>
-        <button type="submit" className={styles.send.button}>
+        <button type="submit" className={styles.send.button} style={{
+          position: "absolute",
+          bottom: "0px",
+          right: "0px",
+          width: "50px",
+          height: "31px",
+          backgroundColor: "#f2f2f2",
+          fontWeight: "bold",
+        }}>
           Send
         </button>
       </form>
