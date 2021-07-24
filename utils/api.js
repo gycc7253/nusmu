@@ -28,25 +28,29 @@ export async function createRoom() {
 //   return room;
 
   // Comment out the above and uncomment the below, using your own URL
-  return { url: "https://nuovonatura.daily.co/dev-Test" };
+  // return { url: "https://nuovonatura.daily.co/dev-Test" };
 
   //API Key: 399d95e0af8c6f9035e42b774a0cb5ed85cdc04f26c34347df1b8e8560c5c271
 
-// const fetch = require('node-fetch');
+const fetch = require('node-fetch');
 
-// const url = "https://api.daily.co/v1/rooms";
-// const options = {
-//     method: 'POST',
-//     headers: {
-//         Accept: 'application/json',
-//         'Content-Type': 'application/json',
-//         Authorization: 'Bearer 399d95e0af8c6f9035e42b774a0cb5ed85cdc04f26c34347df1b8e8560c5c271'
-//     }
-// };
+const url = "https://api.daily.co/v1/rooms";
+const options = {
+    method: 'POST',
+    headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer 399d95e0af8c6f9035e42b774a0cb5ed85cdc04f26c34347df1b8e8560c5c271'
+    },
+};
 
-// let response = await fetch(url, options), room = await response.json();
-// return room;
+let response = await fetch(url, options), room = await response.json();
+return room;
 
+}
+
+export async function goToRoom() {
+  return { url: "https://nuovonatura.daily.co/dev-Test" };
 }
 
 export async function getList() {

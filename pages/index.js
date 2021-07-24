@@ -8,7 +8,7 @@ import Highlighter from 'react-highlight-words';
 import { SearchOutlined, RightOutlined, PlusOutlined, ThunderboltOutlined, CloseOutlined, CheckOutlined} from '@ant-design/icons';
 
 import Call from '../components/video/Call/Call';
-import { createRoom, getList } from '../utils/api';
+import { createRoom, goToRoom, getList } from '../utils/api';
 // import styles from './App.module.css';
 import Tray from '../components/video/Tray/Tray';
 import CallObjectContext from '../utils/CallObjectContext';
@@ -106,7 +106,7 @@ export default function Home() {
 
   const handleMatchOk = () => {
     setIsMatchModalVisible(false);
-    createCall().then((url) => startJoiningCall(url));
+    goToRoom().then((room) => startJoiningCall(room.url));
   };
 
   const handleMatchCancel = () => {
