@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import Router from 'next/router'
 import React, { useState } from 'react';
 import MyLayout from '../components/layout'
 import { Table, PageHeader, Input, Button, Space, Tag, Modal, Select, Switch, Tooltip } from 'antd';
@@ -88,6 +89,7 @@ export default function Home() {
 
   const handleMatchOk = () => {
     setIsMatchModalVisible(false);
+    Router.push('/rooms/room');
   };
 
   const handleMatchCancel = () => {
@@ -100,6 +102,7 @@ export default function Home() {
 
   const handleCreateOk = () => {
     setIsCreateModalVisible(false);
+    Router.push('/rooms/room');
   };
 
   const handleCreateCancel = () => {
