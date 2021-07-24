@@ -3,7 +3,7 @@ import Router from 'next/router'
 import DailyIframe from '@daily-co/daily-js';
 import MyLayout from '../../components/layout'
 import React,{useState} from 'react';
-import { Row, Col, Tag, Modal, Radio, Avatar} from 'antd';
+import { Row, Col, Tag, Modal, Radio, Avatar, Button} from 'antd';
 import { UserAddOutlined,  StarOutlined } from '@ant-design/icons';
 
 const style = { background: 'transparent', padding: '5px'};
@@ -65,7 +65,7 @@ export default function Room() {
 
               <Col className="gutter-row" span={8}>
                 <div style={style}>
-                  <button onClick={handleLeave}>Leave Meeting!</button>
+                  <Button type="primary" danger onClick={handleLeave}>Leave Meeting!</Button>
                 </div>
               </Col>
             </Row>
