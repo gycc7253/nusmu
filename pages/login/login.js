@@ -77,7 +77,7 @@ export default function Login() {
                 >
 
                     <Button type="primary" htmlType="submit">
-                         <Link href="/">
+                         <Link href="/info">
                         <a>Login Now</a>
                         </Link>
                     </Button>
