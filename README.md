@@ -4,6 +4,8 @@ With the help of our app, in this difficult times of COVID-19, our target audien
 ## Features
 Lobby
 
+Study Room
+
 Dashboard
 
 My Profile
