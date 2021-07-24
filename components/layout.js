@@ -1,7 +1,7 @@
 import 'antd/dist/antd.css';
 import Link from 'next/link'
 import React, { useState } from 'react';
-import { Layout, Menu, Breadcrumb, Avatar } from 'antd';
+import { Layout, Menu, Tooltip, Avatar } from 'antd';
 
 import {
   SettingOutlined,
@@ -39,10 +39,15 @@ export default function MyLayout({ number, children }) {
         </div>
         <Menu theme="dark" defaultSelectedKeys={[number]} mode="inline">
           <Menu.Item key="1" icon={<ClusterOutlined />}>
-            <Link href="/">
+           <Link href="/">
+           <Tooltip placement="topRight" title="Find a room you interested to join at Lobby" arrowPointAtCenter>
+          
               <a>Lobby</a>
+              </Tooltip>
             </Link>
+            
           </Menu.Item>
+          
           <Menu.Item key="2" icon={<CalendarOutlined />}>
             <Link href="/dashboard">
               <a>Dashboard</a>

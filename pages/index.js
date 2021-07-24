@@ -323,7 +323,7 @@ export default function Home() {
                           borderRadius:"50px",
                           textAlign:"center",
                           boxShadow: "2px 2px 3px #999"}}>
-      <Tooltip placement="topRight" title="Quick Match" arrowPointAtCenter><ThunderboltOutlined style={{marginTop:"15px", width:"100%", }} onClick={showMatchModal}/></Tooltip>
+      <Tooltip placement="topRight" title="Quickly Match to a room of your interest" arrowPointAtCenter><ThunderboltOutlined style={{marginTop:"15px", width:"100%", }} onClick={showMatchModal}/></Tooltip>
       </a>
       <a href="#" style={{position:"fixed",
                           width:"60px",
@@ -336,7 +336,7 @@ export default function Home() {
                           borderRadius:"50px",
                           textAlign:"center",
                           boxShadow: "2px 2px 3px #999"}}>
-        <Tooltip placement="bottomRight" title="Create Room" arrowPointAtCenter><PlusOutlined style={{marginTop:"15px", width:"100%"}} onClick={showCreateModal}/></Tooltip>
+        <Tooltip placement="bottomRight" title="Create a new Room" arrowPointAtCenter><PlusOutlined style={{marginTop:"15px", width:"100%"}} onClick={showCreateModal}/></Tooltip>
       </a>
 
     </>

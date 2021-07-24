@@ -110,12 +110,17 @@ export default function Dashboard() {
         </Card>
         </Col>
         <Col span={12}>
-        <Card title="This Week's Study graph" style={{textAlign:"center", height: "497px"}}>
+        <Card title="Study hours over the week" style={{textAlign:"center", height: "497px"}}>
         <Area {...config} />
         </Card>
         </Col>        
     </Row>
-        <img src="contribution.png" style={{width:"100%"}}></img>
+   <p> </p>
+   <p> </p>
+        <p>Your yearly focusing summary:</p>
+    <img src="contribution.png" style={{width:"100%"}}></img>
+    
+       
     {/* <Calendar dateCellRender={dateCellRender} /> */}
     </>
     );
