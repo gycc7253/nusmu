@@ -501,17 +501,18 @@ export default function Home() {
   // })
 
   return (
-    <div className="app" style={{
-      backgroundColor: "#4a4a4a",
-      position: "absolute",
-      width: "80%",
-      height: "95%",
-    }}>
+    <div className="app" >
       {showCall ? (
         // NOTE: for an app this size, it's not obvious that using a Context
         // is the best choice. But for larger apps with deeply-nested components
         // that want to access call object state and bind event listeners to the
         // call object, this can be a helpful pattern.
+        <div style={{
+          backgroundColor: "#4a4a4a",
+          position: "absolute",
+          width: "80%",
+          height: "95%",
+        }}>
         <CallObjectContext.Provider value={callObject}>
           <Call roomUrl={roomUrl} />
           <Tray
@@ -519,6 +520,7 @@ export default function Home() {
             onClickLeaveCall={startLeavingCall}
           />
         </CallObjectContext.Provider>
+        </div>
       ) : (
         <>
         <Table columns={columns} dataSource={data}/>
