@@ -1,5 +1,5 @@
 # The Study Group Guide
-The Study Group is an online study platform service that provides public study room for university students to study together.
+The Study Group is an online study platform that provides public study room for university students to study together.
 With the help of our app, in this difficult times of COVID-19, our target audience is granted capacity to socialize, making new friends and maintaining relationship with existing friends.
 ## Features
 Lobby
